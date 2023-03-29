@@ -15,21 +15,20 @@ const todoData = [
     description: 'Taking a nap',
     completed: false,
     index: 0,
-  }
+  },
 ];
 
-todoData.forEach((item)=>{
-  for(let i = 0; i < todoData.length-1; i += 1){
-      if(todoData[i].index > todoData[i+1].index){
-         const temp = todoData[i];
-         todoData[i] = todoData[i+1];
-         todoData[i+1] = temp 
-      }
+todoData.forEach(() => {
+  for (let i = 0; i < todoData.length - 1; i += 1) {
+    if(todoData[i].index > todoData[i + 1].index) {
+      const temp = todoData[i];
+      todoData[i] = todoData[ + 1];
+      todoData[i + 1] = temp;
+    }
   }
 });
 
-const renderList = (item) => {
-  return `
+const renderList = (item) => {return `
     <li id = "list-${item.index}" class="list">
       <div class="list-left">
         <form>
@@ -43,10 +42,10 @@ const renderList = (item) => {
         </svg>
       </div>
     </li>
-  `
-}
+  `;
+};
 
 todoData.forEach((item) => {
   const list = document.getElementById('to-do-lists');
   list.innerHTML += renderList(item);
-})
+});
